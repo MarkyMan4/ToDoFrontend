@@ -64,8 +64,10 @@ class LoginForm extends Component {
     }
 
     // if user is already logged in, redirect them to home page
+    // since the page reloads after logging in, this will redirect the user to
+    // the home page after a successful login
     componentDidMount() {
-        if(cookies.get('token') != undefined) {
+        if(cookies.get('token') !== undefined) {
             this.props.history.push('/');
         }
     }
